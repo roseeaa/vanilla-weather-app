@@ -2,21 +2,93 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://kit.fontawesome.com/6ce0698e69.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
   <body>
-    <div class="container">
-      <h1>HELLO WORLD!!!!!</h1>
-      <a href="" class="btn btn-primary"> Click me </a>
+    <br />
+    <br />
+    <hr />
+    <form id="search-form">
+      <input
+        type="search"
+        name="search"
+        placeholder="Change city"
+        id="city-input"
+      />
+      <button type="submit">Search</button>
+      <button type="submit" id="current-location-button">Current</button>
+    </form>
+    <br />
+    <br />
+    <h1 id="city">Manchester, United Kingdom</h1>
+    <i class="fa-light fa-cloud-hail-mixed"></i>
+
+    <h2 id="temperature">21°C Sunny <i class="fa-regular fa-sun"></i></h2>
+    <a href="#" id="celsius-link">°C</a> |
+    <a href="#" id="fahrenheit-link">°F</a>
+    <p></p>
+    <br />
+    <br />
+    <div class="container text-center">
+      <div class="row align-items-start">
+        <div class="col" id="date">Friday, 15:00 PM - UV Index: 6.4</div>
+      </div>
     </div>
+    <div class="container text-center">
+      <div class="row row-cols-auto"></div>
+    </div>
+
     <script src="src/app.js"></script>
   </body>
+  <br />
+  <div class="sunset">Sunset at 9:30PM <i class="fa-solid fa-moon"></i></div>
+  <img src="src/mountain.png" />
+  <a href="https://www.example.com" class="link">
+    Open-source code <span class="normal-text"> By Raquel </span>
+  </a>
+  <div class="container text-center">
+    <div class="row align-items-start">
+      <div class="week">
+        Saturday 20°C
+        <i class="fa-solid fa-cloud-sun-rain" id="temperature"></i>
+      </div>
+      <div class="week">
+        Sunday 21°C <i class="fa-solid fa-cloud-sun-rain"></i>
+      </div>
+      <div class="week">
+        Monday 20°C <i class="fa-solid fa-cloud-sun-rain"></i>
+      </div>
+      <div class="week">Tuesday 22°C <i class="fa-regular fa-sun"></i></div>
+      <div class="week">Wedsnday 23°C <i class="fa-regular fa-sun"></i></div>
+      <div class="week">Thursday 22°C <i class="fa-regular fa-sun"></i></div>
+      <div class="week">Friday 23°C <i class="fa-regular fa-sun"></i></div>
+    </div>
+  </div>
+  <hr />
 </html>
