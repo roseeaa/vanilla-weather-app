@@ -29,22 +29,24 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
-
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  cityElement.innerHTML = response.data.name;
-  descriptionElement.innerHTML = response.data.weather[0].description;
-  humidityElement.innerHTML = response.data.main.humidity;
-  windElement.innerHTML = Math.round(response.data.wind.speed);
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  iconElement.setAttribute(
-    "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+temperatureElement.innerHTML = `${Math.round(
+  response.data.temperature.current
+)}`;
 
-let apiKey = "3f1421c50b8302eadb3963f161ca0293";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=metric`;
+cityElement.innerHTML = `${response.data.city}`;
+descriptionElement.innerHTML = ` ${response.data.condition.description}`;
+humidityElement.innerHTML = ` ${response.data.temperature.humidity}`;
+windElement.innerHTML = `${Math.round(response.data.wind.speed)}`;
+dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
-console.log(apiUrl);
+iconElement.setAttribute(
+  "src",
+  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+);
+iconElement.setAttribute("alt", response.data.weather[0].description);
+
+let apiKey = "7f3b774a179d36bfd779ftfo6a3bb40b";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=New%20York&key=${apiKey}&units=metric`;
+
 axios.get(apiUrl).then(displayTemperature);
