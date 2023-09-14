@@ -1,5 +1,5 @@
 function formatDate(timestamp) {
-  let date = new Date(timestamp);
+  let date = new Date(timestamp * 1000);
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -29,24 +29,25 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+
+  temperatureElement.innerHTML = `${Math.round(
+    response.data.temperature.current
+  )}`;
+
+  cityElement.innerHTML = `${response.data.city}`;
+  descriptionElement.innerHTML = ` ${response.data.condition.description}`;
+  humidityElement.innerHTML = ` ${response.data.temperature.humidity}`;
+  windElement.innerHTML = `${Math.round(response.data.wind.speed)}`;
+  dateElement.innerHTML = formatDate(response.data.time);
+
+  iconElement.setAttribute(
+    "src",
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  iconElement.setAttribute("alt", response.data.condition.icon);
 }
-temperatureElement.innerHTML = `${Math.round(
-  response.data.temperature.current
-)}`;
-
-cityElement.innerHTML = `${response.data.city}`;
-descriptionElement.innerHTML = ` ${response.data.condition.description}`;
-humidityElement.innerHTML = ` ${response.data.temperature.humidity}`;
-windElement.innerHTML = `${Math.round(response.data.wind.speed)}`;
-dateElement.innerHTML = formatDate(response.data.dt * 1000);
-
-iconElement.setAttribute(
-  "src",
-  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-);
-iconElement.setAttribute("alt", response.data.weather[0].description);
 
 let apiKey = "7f3b774a179d36bfd779ftfo6a3bb40b";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=New%20York&key=${apiKey}&units=metric`;
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=New York&key=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
