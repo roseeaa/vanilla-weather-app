@@ -1,5 +1,6 @@
 body {
   font-family: arial, sans-serif;
+  background: #f0d9da;
 }
 
 h1 {
@@ -47,7 +48,7 @@ li:first-letter {
   max-width: 600px;
   margin: 30px auto;
   padding: 20px;
-  border: 1px solid #dadde1;
+  border: 1px solid #f70776;
   border-radius: 5px;
 }
 .overview {
